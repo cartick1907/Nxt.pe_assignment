@@ -63,6 +63,7 @@ import com.example.nxtpeassignment.ui.theme.Orange
 import com.example.nxtpeassignment.viewmodels.DefaultViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.example.nxtpeassignment.ui.components.FSPCard
+import com.example.nxtpetask.ui.screen.component.popUp
 import com.example.nxtpetask.ui.screen.component.savedCard
 
 
@@ -283,10 +284,21 @@ fun CheckoutScreen() {
                         text = savedOptions.customer_linked_account.options[it].text,
                         iconUrl = savedOptions.customer_linked_account.options[it].icon
                     ) {
-
+                        dataViewModel.showLoadingDialog = true
                     }
                 }
             }
+            if (dataViewModel.showLoadingDialog)
+                popUp(
+                    text="Please approve the request sent to your mobile phone",
+                    seconds = dataViewModel.timer.value
+                ) {
+                    dataViewModel.countDownTimer.start()
+                }
+            else if (dataViewModel.showConfirmationDialog)
+                popUp(
+                    text="Your Transaction is successful. Redirecting to merchant site"
+                )
 
         }
         if(isSheetOpen){
@@ -335,7 +347,7 @@ fun CheckoutScreen() {
                             value =phoneNumber,
                             onValueChange = {
                                 if(it.length<=10)
-                                phoneNumber = it
+                                    phoneNumber = it
                             },
                             label = { Text("Enter phone number") },
                             singleLine = true,
@@ -350,7 +362,7 @@ fun CheckoutScreen() {
                             value =otp,
                             onValueChange = {
                                 if(it.length<=6)
-                                otp = it
+                                    otp = it
                             },
                             label = { Text("OTP") },
                             singleLine = true,
