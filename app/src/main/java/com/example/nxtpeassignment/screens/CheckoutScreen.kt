@@ -64,6 +64,7 @@ import com.example.nxtpeassignment.ui.theme.Orange
 import com.example.nxtpeassignment.viewmodels.DefaultViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.example.nxtpeassignment.ui.components.FSPCard
+import com.example.nxtpetask.ui.screen.component.DotsLoadingAnimation
 import com.example.nxtpetask.ui.screen.component.popUp
 import com.example.nxtpetask.ui.screen.component.savedCard
 
@@ -79,7 +80,7 @@ fun CheckoutScreen() {
         mutableStateOf(-1)
     }
     if (isLoading) {
-        Text(text = "Loading...")
+        DotsLoadingAnimation(dotColor = Orange, modifier = Modifier.fillMaxSize())
         return
     }
     var savedPaymentoptions by remember {
