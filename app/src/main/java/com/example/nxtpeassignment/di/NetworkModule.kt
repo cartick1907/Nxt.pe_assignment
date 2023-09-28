@@ -17,7 +17,8 @@ class NetworkModule {
     @Singleton
     @Provides
     fun providesRetrofit(): Retrofit{
-        return Retrofit.Builder().baseUrl("https://apptestsoko.s3.ap-south-1.amazonaws.com/api/")
+        return Retrofit.Builder()
+            .baseUrl("https://apptestsoko.s3.ap-south-1.amazonaws.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

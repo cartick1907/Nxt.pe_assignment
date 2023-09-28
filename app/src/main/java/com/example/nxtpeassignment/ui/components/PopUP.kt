@@ -4,6 +4,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -93,6 +94,7 @@ fun popUp(text: String, seconds: Long = -1L, startTimer: () -> Unit = {}) {
                     modifier = Modifier.padding(top = 12.dp)
                 )
 
+                if(seconds != -1L)
                 DotsLoadingAnimation(
                     modifier = Modifier.fillMaxSize(),
                     dotColor = Orange

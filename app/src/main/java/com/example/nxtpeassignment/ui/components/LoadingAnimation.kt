@@ -24,7 +24,7 @@ fun DotsLoadingAnimation(
     dotColor: Color,
     dotSize: Int = 10
 ) {
-    val dotSpacing = (dotSize * 5.6).dp
+    val dotSpacing = (dotSize * 6).dp
     val dotRadius = (dotSize.dp / 2).toPx()
     val durationInMillis = 1400
     val (initialSize, finalSize) = 1f to 1.8f

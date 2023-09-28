@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -244,8 +245,7 @@ fun CheckoutScreen() {
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(start = 20.dp, top = 10.dp)
         )
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(3),
+        LazyRow(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 16.dp, top = 14.dp)

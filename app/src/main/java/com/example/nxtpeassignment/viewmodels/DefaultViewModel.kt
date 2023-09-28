@@ -24,6 +24,8 @@ class DefaultViewModel @Inject constructor(private val repository: mandateReposi
 
     private val _timer: MutableState<Long> = mutableStateOf(0)
     private val _isLoading = MutableStateFlow(false)
+
+    //getter
     val isLoading: StateFlow<Boolean> get() = _isLoading
 
     val timer: State<Long> get() = _timer
@@ -45,7 +47,7 @@ class DefaultViewModel @Inject constructor(private val repository: mandateReposi
             if (timer.value == 14L) {
                 showLoadingDialog = false
                 showConfirmationDialog = true
-            } else if (timer.value == 8L) {
+            } else if (timer.value == 10L) {
                 showConfirmationDialog = false
                 cancel()
             }
